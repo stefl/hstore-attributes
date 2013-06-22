@@ -21,7 +21,7 @@ module HstoreColumns
   module ClassMethods
 
     def hstore_accessor(hstore_column, attr_name, type = :string)
-      return unless table_exists?
+      #return unless table_exists?
       access_code                 = "(v=read_hstore('#{attr_name}', '#{hstore_column}')) && #{type_cast_code('v', type)}"
 
       class_eval <<-RUBY, __FILE__, __LINE__ + 1
